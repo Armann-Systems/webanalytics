@@ -1,0 +1,149 @@
+/* Base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Code block styling */
+pre {
+  @apply font-mono text-sm leading-relaxed overflow-x-auto;
+  tab-size: 2;
+}
+
+pre code {
+  @apply block p-4;
+}
+
+/* Inline code styling */
+code:not(pre code) {
+  @apply font-mono text-sm bg-black/5 px-1.5 py-0.5 rounded;
+}
+
+/* Wiki page specific styles */
+.wiki-content h2 {
+  @apply text-3xl font-bold mb-8 scroll-mt-24;
+}
+
+.wiki-content h3 {
+  @apply text-xl font-semibold mb-4 scroll-mt-24;
+}
+
+.wiki-content p {
+  @apply text-black/70 mb-6 leading-relaxed;
+}
+
+.wiki-content ul {
+  @apply space-y-4 mb-6;
+}
+
+.wiki-content li {
+  @apply flex items-start space-x-3;
+}
+
+/* Documentation section styling */
+.doc-section {
+  @apply bg-black/5 rounded-2xl p-8 mb-16;
+}
+
+.doc-section pre {
+  @apply bg-black text-white rounded-lg mt-4;
+}
+
+/* API endpoint styling */
+.api-endpoint {
+  @apply flex items-start space-x-3 p-4 bg-white rounded-xl hover:shadow-md transition-all duration-200;
+}
+
+.api-endpoint code {
+  @apply font-mono text-sm bg-black/10 px-2 py-1 rounded;
+}
+
+/* Navigation improvements */
+.anchor-offset {
+  scroll-margin-top: 5rem;
+}
+
+/* Responsive table styling */
+.table-container {
+  @apply w-full overflow-x-auto mb-8;
+}
+
+.table-container table {
+  @apply min-w-full divide-y divide-black/10;
+}
+
+.table-container th {
+  @apply px-6 py-3 text-left text-xs font-medium text-black/60 uppercase tracking-wider;
+}
+
+.table-container td {
+  @apply px-6 py-4 whitespace-nowrap text-sm text-black/80;
+}
+
+/* Custom scrollbar for code blocks */
+pre::-webkit-scrollbar {
+  @apply h-2 w-2;
+}
+
+pre::-webkit-scrollbar-track {
+  @apply bg-black/5 rounded-full;
+}
+
+pre::-webkit-scrollbar-thumb {
+  @apply bg-black/20 rounded-full hover:bg-black/30;
+}
+
+/* Feature card hover effects */
+.feature-card {
+  @apply transition-all duration-300;
+}
+
+.feature-card:hover {
+  @apply transform -translate-y-1;
+}
+
+/* Documentation navigation */
+.doc-nav {
+  @apply sticky top-24 overflow-y-auto max-h-[calc(100vh-8rem)];
+}
+
+.doc-nav::-webkit-scrollbar {
+  @apply w-2;
+}
+
+.doc-nav::-webkit-scrollbar-track {
+  @apply bg-black/5 rounded-full;
+}
+
+.doc-nav::-webkit-scrollbar-thumb {
+  @apply bg-black/20 rounded-full hover:bg-black/30;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none;
+  }
+  
+  .wiki-content {
+    @apply mx-0 px-0;
+  }
+  
+  pre {
+    white-space: pre-wrap;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .wiki-content pre {
+    @apply bg-white/10;
+  }
+  
+  .doc-section {
+    @apply bg-white/5;
+  }
+  
+  code:not(pre code) {
+    @apply bg-white/10;
+  }
+}
